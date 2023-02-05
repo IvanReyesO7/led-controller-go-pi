@@ -11,7 +11,7 @@ func main() {
 	r := gin.Default()
 	r.LoadHTMLGlob("templates/*")
 	r.GET("/", func(c *gin.Context) {
-		c.JSON(200, gin.H{"status": "OK"})
+		c.HTML(200, "index.html", gin.H{"status": "OK"})
 	})
 	r.Run()
 }
