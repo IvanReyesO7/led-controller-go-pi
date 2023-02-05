@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	raspberryPiGpio "led-controller-go-pi/raspberryPiGpio"
 
 	"github.com/gin-gonic/gin"
 )
@@ -14,5 +15,7 @@ func main() {
 	r.GET("/", func(c *gin.Context) {
 		c.HTML(200, "index.html", gin.H{"status": "OK"})
 	})
+
+	r.POST("/action", raspberryPiGpio.HandleRequest)
 	r.Run()
 }
